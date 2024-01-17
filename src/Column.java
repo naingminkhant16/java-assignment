@@ -21,7 +21,7 @@ public class Column {
         this.isPrimarykey = isPrimarykey;
     }
 
-    public String getSql() {
+    public String getQuery() {
         String sql = name + " " + type;
 
         if (isPrimarykey) {
@@ -37,11 +37,4 @@ public class Column {
         return sql;
     }
 
-//    public static void main(String[] args) {
-//
-//        Column c = new Column("id", "int", false, true);
-//        Column c2 = new Column("name", "varchar(20)", true, false);
-//
-//        System.out.println("create table Person (" + c.getSql() + "," + c2.getSql() + ")");
-//    }
 }

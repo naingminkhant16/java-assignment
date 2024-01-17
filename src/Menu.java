@@ -181,11 +181,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnManageTablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageTablesActionPerformed
         // TODO add your handling code here:
+        ManageTables manageTables = new ManageTables();
+        this.setVisible(false);
+        manageTables.setVisible(true);
     }//GEN-LAST:event_btnManageTablesActionPerformed
 
     private void btnNewAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewAdminActionPerformed
         // TODO add your handling code here:
-        AddNewAdmin addNewAdmin=new AddNewAdmin();
+        AddNewAdmin addNewAdmin = new AddNewAdmin();
         addNewAdmin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNewAdminActionPerformed

@@ -251,7 +251,7 @@ public class AddNewTable extends javax.swing.JFrame {
             Column col = new Column(name, type, chkNull.isSelected(), chkPK.isSelected());
             columns.add(col);
 
-            txtArea.setText(txtArea.getText() + "\n" + col.getSql());
+            txtArea.setText(txtArea.getText() + "\n" + col.getQuery());
 
             txtColName.setText("");
             cboType.setSelectedIndex(0);
@@ -272,7 +272,7 @@ public class AddNewTable extends javax.swing.JFrame {
                 String sql = "create table " + tableName + " (";
 
                 for (Column c : columns) {
-                    sql += c.getSql() + ",";
+                    sql += c.getQuery() + ",";
                 }
 
                 sql = sql.substring(0, sql.length() - 1) + ")";
