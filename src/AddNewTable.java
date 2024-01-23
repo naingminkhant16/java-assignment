@@ -126,7 +126,7 @@ public class AddNewTable extends javax.swing.JFrame {
         });
 
         cboType.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        cboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "int ", "float", "varchar(5)", "varchar(10)", "varchar(20)", "date", "double", " " }));
+        cboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int ", "float", "varchar(5)", "varchar(10)", "varchar(20)", "date", "double", " " }));
 
         btnCreateTable.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         btnCreateTable.setText("Create Table");

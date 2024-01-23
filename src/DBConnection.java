@@ -22,7 +22,7 @@ public class DBConnection {
     PreparedStatement preparedStatement = null;
 
     final String url = "jdbc:mysql://localhost:3306/RepairDB";
-    final String driver = "com.mysql.jdbc.Driver";
+        final String driver = "com.mysql.jdbc.Driver";
     final String username = "nmk";
     final String password = "123456";
 

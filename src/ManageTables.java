@@ -23,6 +23,7 @@ public class ManageTables extends javax.swing.JFrame {
         btnCreate.setEnabled(false);
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
+        btnDeleteTable.setEnabled(false);
     }
 
     private void getTableNames() {
@@ -33,6 +34,7 @@ public class ManageTables extends javax.swing.JFrame {
             String[] types = {"TABLE"};
             db.resultSet = dbmd.getTables("RepairDB", null, "%", types);
 
+            cboTableName.removeAllItems();
             while (db.resultSet.next()) {
                 String tableName = db.resultSet.getString("TABLE_NAME");
                 if (tableName.equals("UserLogin") || tableName.equals("customer") || tableName.equals("product")) {
@@ -72,6 +74,7 @@ public class ManageTables extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        btnDeleteTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,6 +179,15 @@ public class ManageTables extends javax.swing.JFrame {
             }
         });
 
+        btnDeleteTable.setBackground(new java.awt.Color(255, 0, 51));
+        btnDeleteTable.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        btnDeleteTable.setText("Delete Table");
+        btnDeleteTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -186,13 +198,6 @@ public class ManageTables extends javax.swing.JFrame {
                 .addGap(293, 293, 293))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(cboTableName, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConfirm))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -209,30 +214,42 @@ public class ManageTables extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(chkNull)
                                 .addGap(171, 171, 171)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                                .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(chkPk)
                                 .addGap(105, 105, 105)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                                     .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5)))
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboTableName, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnConfirm)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cboTableName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConfirm))
+                    .addComponent(btnConfirm)
+                    .addComponent(btnDeleteTable))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -273,6 +290,7 @@ public class ManageTables extends javax.swing.JFrame {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:       
         getData();
+        btnDeleteTable.setEnabled(true);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void getData() {
@@ -360,25 +378,30 @@ public class ManageTables extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int index = tblTable.getSelectedRow();
-        String cName = txtColName.getText().trim();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete?", "Warning", dialogButton);
 
-        if (cName.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Column name cannot be empty!!!");
-            return;
-        }
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            int index = tblTable.getSelectedRow();
+            String cName = txtColName.getText().trim();
 
-        try {
-            String sql = "alter table " + cboTableName.getSelectedItem() + " drop column " + cName + "";
-            DBConnection db = new DBConnection();
+            if (cName.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Column name cannot be empty!!!");
+                return;
+            }
 
-            db.preparedStatement = db.connection.prepareStatement(sql);
-            db.preparedStatement.execute();
-            JOptionPane.showMessageDialog(this, "Column is successfully deleted.");
-            getData();
-            clear();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex);
+            try {
+                String sql = "alter table " + cboTableName.getSelectedItem() + " drop column " + cName + "";
+                DBConnection db = new DBConnection();
+
+                db.preparedStatement = db.connection.prepareStatement(sql);
+                db.preparedStatement.execute();
+                JOptionPane.showMessageDialog(this, "Column is successfully deleted.");
+                getData();
+                clear();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -409,6 +432,29 @@ public class ManageTables extends javax.swing.JFrame {
             chkPk.setSelected(true);
         }
     }//GEN-LAST:event_tblTableMouseClicked
+
+    private void btnDeleteTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTableActionPerformed
+        // TODO add your handling code here:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete?", "Warning", dialogButton);
+
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            String tableName = cboTableName.getSelectedItem().toString();
+
+            try {
+                String sql = "drop table " + tableName;
+                DBConnection db = new DBConnection();
+
+                db.statement.executeUpdate(sql);
+                JOptionPane.showMessageDialog(this, "Table is successfully deleted.");
+                getTableNames();
+                getData();
+                clear();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }
+    }//GEN-LAST:event_btnDeleteTableActionPerformed
     private void clear() {
         txtColName.setText("");
         cboColType.setSelectedIndex(0);
@@ -460,6 +506,7 @@ public class ManageTables extends javax.swing.JFrame {
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDeleteTable;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cboColType;
     private javax.swing.JComboBox<String> cboTableName;

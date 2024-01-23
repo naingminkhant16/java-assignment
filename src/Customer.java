@@ -29,7 +29,7 @@ public class Customer extends javax.swing.JFrame {
             Object[] row = new Object[7];
 
             db.resultSet = db.statement.executeQuery(sql);
-
+            
             DefaultTableModel model = (DefaultTableModel) tblCustomer.getModel();
             model.setRowCount(0);
 

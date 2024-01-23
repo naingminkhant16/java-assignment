@@ -312,16 +312,15 @@
               <Font name="Liberation Sans" size="18" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="9">
-                <StringItem index="0" value="select"/>
-                <StringItem index="1" value="int "/>
-                <StringItem index="2" value="float"/>
-                <StringItem index="3" value="varchar(5)"/>
-                <StringItem index="4" value="varchar(10)"/>
-                <StringItem index="5" value="varchar(20)"/>
-                <StringItem index="6" value="date"/>
-                <StringItem index="7" value="double"/>
-                <StringItem index="8" value=" "/>
+              <StringArray count="8">
+                <StringItem index="0" value="int "/>
+                <StringItem index="1" value="float"/>
+                <StringItem index="2" value="varchar(5)"/>
+                <StringItem index="3" value="varchar(10)"/>
+                <StringItem index="4" value="varchar(20)"/>
+                <StringItem index="5" value="date"/>
+                <StringItem index="6" value="double"/>
+                <StringItem index="7" value=" "/>
               </StringArray>
             </Property>
           </Properties>
