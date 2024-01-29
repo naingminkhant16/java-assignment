@@ -21,10 +21,10 @@ public class DBConnection {
     ResultSet resultSet = null;
     PreparedStatement preparedStatement = null;
 
-    final String url = "jdbc:mysql://localhost:3306/RepairDB";
-        final String driver = "com.mysql.jdbc.Driver";
-    final String username = "nmk";
-    final String password = "123456";
+    private final String url = "jdbc:mysql://localhost:3306/RepairDB";
+    private final String driver = "com.mysql.jdbc.Driver";
+    private final String username = "nmk";
+    private final String password = "123456";
 
     public DBConnection() {
         try {

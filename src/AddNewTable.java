@@ -19,7 +19,7 @@ public class AddNewTable extends javax.swing.JFrame {
 
     public AddNewTable() {
         initComponents();
-        txtArea.setText("Cloumns \n-------------");
+        txtArea.setText("Columns \n-------------");
 
     }
 
@@ -288,7 +288,7 @@ public class AddNewTable extends javax.swing.JFrame {
             }
             columns.clear();
             txtTableName.setText("");
-            txtArea.setText("Cloumns \n-------------");
+            txtArea.setText("Columns \n-------------");
         }
     }//GEN-LAST:event_btnCreateTableActionPerformed
 

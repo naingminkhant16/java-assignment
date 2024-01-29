@@ -29,7 +29,7 @@ public class Customer extends javax.swing.JFrame {
             Object[] row = new Object[7];
 
             db.resultSet = db.statement.executeQuery(sql);
-            
+
             DefaultTableModel model = (DefaultTableModel) tblCustomer.getModel();
             model.setRowCount(0);
 
@@ -514,11 +514,11 @@ public class Customer extends javax.swing.JFrame {
         try {
             String keyword = txtSearch.getText().trim();
             DBConnection db = new DBConnection();
-            
+
             String sql = "select * from customer where Customer_ID like '%" + keyword + "%' or Customer_Name like '%" + keyword + "%' or Customer_Add like '%"
                     + keyword + "%' or Customer_Tel like '%" + keyword + "%' or Customer_Email like '%"
                     + keyword + "%' or Customer_Gender like '%" + keyword + "%'";
-            
+
             Object[] row = new Object[7];
 
             db.resultSet = db.statement.executeQuery(sql);
